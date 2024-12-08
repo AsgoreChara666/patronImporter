@@ -129,7 +129,7 @@ def getCreatorData(id):
         "posts": []
     }
 
-def run(id, key, type):
+def run(id, type, key=keys.fanbox):
     global cr
 
     cr = request.requestUrlBr("https://www.fanbox.cc/favicon.ico", {"name": "FANBOXSESSID", "value": key})[1]
@@ -149,7 +149,6 @@ if __name__ == "__main__":
     
     a = run(
         "msmspc",
-        keys.fanbox,
         0
     )
     print(a)

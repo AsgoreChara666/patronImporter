@@ -130,7 +130,7 @@ def getCreatorData(id):
         "posts": []
     }
 
-def run(id, key, type):
+def run(id, type, key=keys.afdian):
     global cookies
     
     cookies = {"auth_token": key}
@@ -147,7 +147,6 @@ def run(id, key, type):
 if __name__ == "__main__":
     a = run(
         "AMFIG",
-        keys.afdian,
         0
     )
     print(a)

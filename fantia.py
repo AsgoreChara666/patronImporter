@@ -153,7 +153,7 @@ def getCreatorData(id):
         "posts": []
     }
 
-def run(id, key, type):
+def run(id, type, key=keys.fantia):
     global cookies
     
     cookies = {"_session_id": key}
@@ -174,7 +174,6 @@ def run(id, key, type):
 if __name__ == "__main__":
     a = run(
         491908,
-        keys.fantia,
         0
     )
     print(a)

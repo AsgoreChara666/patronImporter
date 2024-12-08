@@ -1,1 +1,5 @@
+.gitignore
+
 keys.py
+PUSHER.BAT
+PULLER.BAT

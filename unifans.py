@@ -117,7 +117,7 @@ def getCreatorData(id):
         "posts": []
     }
 
-def run(id, key, type):
+def run(id, type, key=keys.unifans):
     global cr
     global cookie
     
@@ -145,7 +145,6 @@ if __name__ == "__main__":
     
     a = run(
         "jingmiantu",
-        keys.unifans,
         0
     )
     print(a)
