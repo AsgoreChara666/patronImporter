@@ -22,3 +22,9 @@ def datetimeEdit(dates, times, utf=0):
         times[1],
         times[2]
     ) + timedelta(hours=utf))
+
+def unsplitedDatetimeEdit(datetimes, utf=0):
+    dates = datetimes.split("T")[0].split(" ")[0].split("-")
+    times = datetimes.split("T")[-1].split("+")[0].split(" ")[-1].split(".")[0].split(":")
+    
+    return datetimeEdit(dates, times, utf)

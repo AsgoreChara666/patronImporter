@@ -7,14 +7,8 @@ import urllib.parse
 
 import json	
 
-def datetimesEdit(datetimes, utf=-9):
-    dates = datetimes.split("T")[0].split(" ")[0].split("-")
-    times = datetimes.split("T")[-1].split("+")[0].split(" ")[-1].split(":")
-    
-    return unixTime.datetimeEdit(dates, times, -9)
-
 def setCommentData(targetDict, data, replily=False):
-    datetime = datetimesEdit(data["createdDatetime"])
+    datetime = unixTime.unsplitedDatetimeEdit(data["createdDatetime"])
 
     targetDict.append({
       "root": data["rootCommentId"],
@@ -103,8 +97,8 @@ def appendList(list, b=[], passPaid=0):
             "public": i["isRestricted"],
             "data": getPostsData(i["id"]),
             "datetime": {
-                 "upload": datetimesEdit(i["publishedDatetime"], -9),
-                 "edit": datetimesEdit(i["updatedDatetime"], -9)
+                 "upload": unixTime.unsplitedDatetimeEdit(i["publishedDatetime"], -9),
+                 "edit": unixTime.unsplitedDatetimeEdit(i["updatedDatetime"], -9)
             }
         }
         
@@ -139,7 +133,7 @@ def run(id, type, key=keys.fanbox):
 
     while len(a["body"]) > 1:
         appendList(a["body"], b["posts"], type)
-        a = getPostsList(id, datetimesEdit(b["posts"][-1]["datetime"]["upload"], 9))
+        a = getPostsList(id, unixTime.unsplitedDatetimeEdit(b["posts"][-1]["datetime"]["upload"], 9))
         del b["posts"][-1]
     
     return json.dumps(b, ensure_ascii=False)

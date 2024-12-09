@@ -1,3 +1,5 @@
+Patreon still in W.I.P.
+
 # How to use?
 
 1. Create a "keys.py" in folder, example like this:
